@@ -4,7 +4,7 @@ import { getProducts } from "@/lib/shopify/index"
 import { Product } from "@/lib/shopify/types"
 import { SimpleGrid } from "@chakra-ui/react"
 import { useQuery } from "@tanstack/react-query"
-import ProductCard from "../product-card"
+import ProductCard from "@/components/product-card"
 
 type Props = {
   products: Product[]

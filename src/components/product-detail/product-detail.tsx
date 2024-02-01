@@ -7,8 +7,8 @@ import { useParams } from "next/navigation";
 
 import { Box, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react'
 import getFormatMinPrice from "@/utils/get-format-min-price";
+import { NO_IMAGE_URL } from "@/lib/constants";
 
-const noImageUrl = "https://cdn.shopify.com/s/files/1/0582/1569/4403/files/placeholder.png?v=1706713593";
 
 type Props = {
   product?: Product;
@@ -30,10 +30,10 @@ export default function ProductDetail({product}: Props) {
 	return (
 		<SimpleGrid minChildWidth='50%' spacing="0" padding="50px">
 			<Box boxSize='lg'>
-				<Image src={data?.images?.[0].url || noImageUrl} alt={data?.images?.[0].altText || data?.title} />
+				<Image src={data?.images?.[0]?.url || NO_IMAGE_URL} alt={data?.images?.[0]?.altText || data?.title} />
 			</Box>
 			<Box boxSize='md' paddingTop="50px">
-				<Heading h='48px' fontWeight='bold' size='lg'>{data.title || "Product"}</Heading>
+				<Heading h='78px' fontWeight='bold' size='lg'>{data.title || "Product"}</Heading>
 				{data?.description && (
 					<Text color='blue.600' fontSize='xl' paddingTop="20px">
 						{data?.description}

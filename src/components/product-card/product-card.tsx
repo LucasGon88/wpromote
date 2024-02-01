@@ -1,5 +1,6 @@
 'use client'
 
+import { NO_IMAGE_URL } from "@/lib/constants";
 import { Product } from "@/lib/shopify/types";
 import getFormatMinPrice from "@/utils/get-format-min-price";
 import { Card, CardBody, CardFooter, Stack, Text, Heading, Divider, Button, Image, Box } from '@chakra-ui/react'
@@ -14,8 +15,6 @@ type ChakraNextLinkButtonProps =  {
 	href: string;
 	children: ReactNode;
 };
-
-const noImageUrl = "https://cdn.shopify.com/s/files/1/0582/1569/4403/files/placeholder.png?v=1706713593";
 
 
 const ChakraNextLinkButton = ({ href, children }: ChakraNextLinkButtonProps) => {
@@ -35,7 +34,7 @@ export default function ProductCard({product}: Props) {
 				<CardBody>
 					<Image
 						height={'300'}
-						src={product.images?.[0]?.url || noImageUrl}
+						src={product.images?.[0]?.url || NO_IMAGE_URL}
 						alt={product.images?.[0]?.altText || product.title}
 						borderRadius='lg'
 					/>
